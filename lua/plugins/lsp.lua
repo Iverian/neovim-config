@@ -57,50 +57,6 @@ return {
     end
   },
   {
-    'Dan7h3x/signup.nvim',
-    branch = 'main',
-    opts = {},
-  },
-  {
-    'kosayoda/nvim-lightbulb',
-    opts = {
-      autocmd = { enabled = true },
-      sign = {
-        enabled = true,
-        text = "",
-        lens_text = "",
-      }
-    }
-  },
-  {
-    "aznhe21/actions-preview.nvim",
-    opts = {
-      telescope = {
-        sorting_strategy = "ascending",
-        layout_strategy = "vertical",
-        layout_config = {
-          width = 0.8,
-          height = 0.9,
-          prompt_position = "top",
-          preview_cutoff = 20,
-          preview_height = function(_, _, max_lines)
-            return max_lines - 15
-          end,
-        },
-      },
-    }
-  },
-  {
-    'j-hui/fidget.nvim',
-    opts = {
-      progress = {
-        display = {
-          render_limit = 8,
-        },
-      },
-    },
-  },
-  {
     "seblyng/roslyn.nvim",
     ft = { "cs", "razor" },
     init = function()
@@ -147,48 +103,6 @@ return {
           },
         },
       })
-    end
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    ft = { "rust" },
-    config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-      vim.g.rustaceanvim = {
-        capabilities = capabilities,
-        tools = {
-          autoSetHints = true,
-          inlay_hints = {
-            show_parameter_hints = true,
-            parameter_hints_prefix = "in: ", -- "<- "
-            other_hints_prefix = "out: "     -- "=> "
-          }
-        },
-        server = {
-          settings = {
-            -- rust-analyzer language server configuration
-            ['rust-analyzer'] = {
-              assist = {
-                importEnforceGranularity = true,
-                importPrefix = "create"
-              },
-              cargo = { allFeatures = true },
-              checkOnSave = {
-                -- default: `cargo check`
-                command = "clippy",
-                allFeatures = true
-              },
-              inlayHints = {
-                lifetimeElisionHints = {
-                  enable = true,
-                  useParameterNames = true
-                }
-              }
-            }
-          }
-        }
-      }
     end
   },
   {
